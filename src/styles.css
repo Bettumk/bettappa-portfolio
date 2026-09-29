@@ -103,6 +103,11 @@ h1 { font: 700 clamp(70px, 11vw, 138px)/.82 "Space Grotesk"; letter-spacing: -.0
 .project-title-row { display: flex; justify-content: space-between; gap: 20px; }
 .project-title-row h4 { font: 600 25px "Space Grotesk"; margin: 2px 0 10px; }
 .project-title-row svg { color: var(--muted); }
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .project-main > p { color: var(--muted); line-height: 1.7; margin: 0 0 17px; max-width: 850px; }
 .project-role { display: grid; grid-template-columns: 70px 1fr; gap: 15px; margin-bottom: 18px; font-size: 12px; }
 .project-role strong { color: #d9def0; }
