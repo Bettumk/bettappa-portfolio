@@ -41,12 +41,24 @@ const profile = {
   graduation: "2027",
   email: "bettumk@gmail.com",
   github: "https://github.com/Bettumk",
-  linkedin: "https://www.linkedin.com/in/bettappa-m-k-76ab7a2a5",
+  linkedin: "https://www.linkedin.com/in/bettappa-76ab7a2a5",
 };
 
 const skills = [
   { icon: Code2, title: "Programming", items: ["C", "Python", "Java", "Kotlin", "C++ (Basics)"] },
-  { icon: Cpu, title: "AI / ML", items: ["Machine Learning", "Deep Learning", "NLP", "Emotion Recognition", "Time-Series Models"] },
+ {
+  icon: Cpu,
+  title: "AI / ML",
+  items: [
+    "Artificial Intelligence",
+    "AI Agents",
+    "Generative AI",
+    "Machine Learning",
+    "Deep Learning",
+    "NLP",
+    "Emotion Recognition",
+  ],
+},
   { icon: Layers3, title: "Web & Mobile", items: ["HTML", "CSS", "JavaScript", "Django", "Android / Kotlin"] },
   { icon: Database, title: "Data & Systems", items: ["MySQL", "OOP", "TCP Sockets", "P2P Networking", "AES Encryption"] },
   { icon: Smartphone, title: "IoT", items: ["ESP8266", "Arduino", "Blynk", "Sensors", "Automation"] },
@@ -55,6 +67,19 @@ const skills = [
 const projects = [
   {
     number: "01",
+    title: "TechMate AI — Intelligent CSE, Coding and Career Assistant",
+    status: "AI Agent · Personal Project · Deployed",
+    demo: "https://techmate-ai-1-c2vy.onrender.com/",
+    description:
+      "An AI-powered assistant designed to help Computer Science students with coding, technical concepts, interview preparation, career guidance, and learning support.",
+    role:
+      "Designed and built the AI assistant using Google Antigravity, focused on conversational interaction, student-oriented technical support, and deployment as a working web application.",
+    tags: ["AI Agent", "Generative AI", "CSE", "Coding Assistant", "Career Assistant"],
+    icon: Sparkles,
+    featured: true,
+  },
+  {
+    number: "02",
     title: "Smart Soil Monitoring System",
     status: "Engineering Exploration · Group Project",
     github: "https://github.com/Bettumk/smart-soil-monitoring-system",
@@ -64,19 +89,6 @@ const projects = [
       "Contributed as a team member across problem identification, system design, hardware assembly, NodeMCU programming, sensor integration, Blynk setup, irrigation automation, testing, and project documentation.",
     tags: ["IoT", "ESP8266", "NodeMCU", "Arduino", "C/C++", "Blynk", "Soil Moisture Sensor", "DS18B20", "Wi-Fi"],
     icon: Cpu,
-    featured: true,
-  },
-  {
-    number: "02",
-    title: "Airline Management System",
-    status: "Mini Project · 2024-25 · Group Project",
-    github: "https://github.com/Bettumk/Airline-Management-System-README.md",
-    description:
-      "A Java-based airline management application with MySQL database integration for managing flights, passenger details, journey information, ticket booking, payments, cancellations, and flight information.",
-    role:
-      "Contributed as a team member across application development, database integration, module implementation, testing, debugging, and project documentation.",
-    tags: ["Java", "MySQL", "JDBC", "Database", "GUI", "Flight Management", "Ticket Booking"],
-    icon: Database,
     featured: true,
   },
   {
@@ -106,6 +118,19 @@ const projects = [
   },
   {
     number: "05",
+    title: "Airline Management System",
+    status: "Mini Project · 2024-25 · Group Project",
+    github: "https://github.com/Bettumk/Airline-Management-System-README.md",
+    description:
+      "A Java-based airline management application with MySQL database integration for managing flights, passenger details, journey information, ticket booking, payments, cancellations, and flight information.",
+    role:
+      "Contributed as a team member across application development, database integration, module implementation, testing, debugging, and project documentation.",
+    tags: ["Java", "MySQL", "JDBC", "Database", "GUI", "Flight Management", "Ticket Booking"],
+    icon: Database,
+    featured: true,
+  },
+  {
+    number: "06",
     title: "AI Customer Support",
     status: "Group Project",
     description:
@@ -117,7 +142,7 @@ const projects = [
     featured: true,
   },
   {
-    number: "06",
+    number: "07",
     title: "WiFi File Transfer",
     status: "Cryptography & Network Security · 2025-26 · Group Project",
     description:
@@ -128,7 +153,7 @@ const projects = [
     icon: Smartphone,
   },
   {
-    number: "07",
+    number: "08",
     title: "Home Planner App",
     status: "Mobile Application Development · 2025-26 · Group Project",
     description:
@@ -139,7 +164,7 @@ const projects = [
     icon: Code2,
   },
   {
-    number: "08",
+    number: "09",
     title: "Crowd Controlling System Using IoT",
     status: "Group Project",
     description:
@@ -150,7 +175,7 @@ const projects = [
     icon: Layers3,
   },
   {
-    number: "09",
+    number: "10",
     title: "Food Hub Website",
     status: "Group Project",
     description:
@@ -279,7 +304,9 @@ function App() {
           <div className="section-heading"><Reveal><h3>Work I'm <span>proud of.</span></h3></Reveal><Reveal><p>Academic projects where I applied programming, systems thinking, integration, and testing to practical problems.</p></Reveal></div>
           <div className="projects-list">
             <div className="project-group-note"><Sparkles size={15}/> Featured work includes my final-year project and strongest engineering projects. Other academic/group projects are included to show breadth.</div>
-            {projects.map(({number,title,status,description,role,tags,icon:Icon,flow,featured,image,github})=><Reveal key={title}><article className={`project-card ${featured ? "featured-project" : ""}`}>
+               {projects.map(({number,title,status,description,role,tags,icon:Icon,flow,featured,image,github,demo}) => (
+  <Reveal key={title}>
+    <article className={`project-card ${featured ? "featured-project" : ""}`}>
               <div className="project-number">{number}</div><div className="project-icon"><Icon size={28}/></div>
               <div className="project-main">
                 {image && <div className="project-visual"><img src={image} alt={`${title} project visual`} /></div>}<div className="project-title-row">
@@ -287,19 +314,39 @@ function App() {
     <h4>{title}</h4>
     {status && <span className="project-status">{status}</span>}
   </div>
-  {github ? (
-    <a className="project-link" href={github} target="_blank" rel="noopener noreferrer" aria-label={`Open ${title} on GitHub`}>
-      <ArrowUpRight size={21}/>
+ <div className="project-links">
+  {demo && (
+    <a
+      className="project-link"
+      href={demo}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open ${title} live demo`}
+      title="Live Demo"
+    >
+      <ExternalLink size={20}/>
     </a>
-  ) : (
-    <ArrowUpRight size={21}/>
   )}
+
+  {github && (
+    <a
+      className="project-link"
+      href={github}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open ${title} on GitHub`}
+      title="GitHub"
+    >
+      <Github size={20}/>
+    </a>
+  )}
+</div>
 </div><p>{description}</p><div className="project-role"><strong>My role</strong><span>{role}</span></div>
                   {flow && <div className="project-flow">
                     <span>Sensors</span><b>→</b><span>ESP8266</span><b>→</b><span>Wi-Fi</span><b>→</b><span>Blynk</span><b>→</b><span>Pump / Alerts</span>
                   </div>}
                   <div className="chips">{tags.map(t=><span key={t}>{t}</span>)}</div></div>
-            </article></Reveal>)}
+            </article></Reveal>))}
           </div>
         </section>
 
